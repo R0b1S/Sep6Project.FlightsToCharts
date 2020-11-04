@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/sep-airline-key-vault",
+      "type": "secrets.keyVault",
+      "connectionId": "SepAirlineKeyVaultURI",
+      "secretStore": null
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sep-airline-db-server/databases/sep-airline-db",
+      "type": "mssql.azure",
+      "connectionId": "SepAirlineDbConnectionString",
+      "secretStore": "AzureKeyVault"
+    }
+  }
+}
