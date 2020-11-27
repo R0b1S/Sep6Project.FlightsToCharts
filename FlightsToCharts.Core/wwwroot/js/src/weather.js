@@ -51,6 +51,10 @@
          showColumnLines: true,
          rowAlternationEnabled: true,
          width: '80%',
+         filterRow: {
+            visible: true,
+            applyFilter: "auto"
+         },
          paging: {
             pageSize: 15
          },
@@ -62,52 +66,61 @@
          dataSource: datasource,
          columns: [
             {
-               dataField: 'FAA',
-               caption: 'FAA',
-               width: 75,
-               alignment: 'right'
+               dataField: 'Origin',
+               caption: 'Origin',
+               width: 85
             },
             {
-               dataField: 'Name',
-               caption: 'Name',
-               width: 350
+               dataField: 'TimeHour',
+               caption: 'Date of record',
+               dataType: 'datetime',
+               format: 'dd.MM.yyyy HH:mm'
             },
             {
-               caption: 'Location',
-               encodeHtml: false,
-               alignment: 'center',
-               width: 100,
-               calculateCellValue: (rowData) => {
-                  return rowData.Lat + ',' + rowData.Lon;
-               },
-               cellTemplate: (element, info) => {
-                  element.append('<a href="https://www.google.com/maps/search/?api=1&zoom=10&query=' + info.text + '"> <i class="fas fa-map-marked-alt"></i></a>').css("color", "blue");
-               }
+               dataField: 'TempCels',
+               caption: 'Temperature(C)',
+               //width: 350
             },
             {
-               dataField: 'Alt',
-               caption: 'Altitude(ft)',
-               width: 150
+               dataField: 'DewCels',
+               caption: 'Dew Point(C)',
+               //width: 350
             },
             {
-               dataField: 'Tz',
-               caption: 'Timezone(GMT)',
-               width: 150
+               dataField: 'Humid',
+               caption: 'Humidity(%)',
+               //width: 350
             },
             {
-               dataField: 'Dst',
-               caption: 'Daylight savings time zone',
-               width: 200,
-               alignment: 'center'
+               dataField: 'WindDir',
+               encondeHtml: false,
+               caption: 'Wind Direction(<span>&#176;</span>)',
+               //width: 350
             },
             {
-               dataField: 'Tzone',
-               caption: 'IANA time zone',
-               width: 250
+               dataField: 'WindSpeed',
+               caption: 'Wind speed(mph)',
+               //width: 350
             },
             {
-               dataField: 'X',
-               caption: ' '
+               dataField: 'WindGust',
+               caption: 'Gust speed(mph)',
+               //width: 350
+            },
+            {
+               dataField: 'Precip',
+               caption: 'Precipitation(in)',
+               //width: 350
+            },
+            {
+               dataField: 'Pressure',
+               caption: 'Pressure(millibars)',
+               //width: 350
+            },
+            {
+               dataField: 'Visib',
+               caption: 'Visibility(miles)',
+               //width: 350
             }
          ],
          showBorders: true

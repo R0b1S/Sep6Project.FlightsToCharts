@@ -8,6 +8,7 @@ var airportsHubConnection = new signalR.HubConnectionBuilder().withUrl('/airport
 var flightsHubConnection = new signalR.HubConnectionBuilder().withUrl('/flightsHub').withAutomaticReconnect().build();
 var planesHubConnection = new signalR.HubConnectionBuilder().withUrl('/planesHub').withAutomaticReconnect().build();
 var weatherHubConnection = new signalR.HubConnectionBuilder().withUrl('/weatherHub').withAutomaticReconnect().build();
+var assignmentHubConnection = new signalR.HubConnectionBuilder().withUrl('/assignmentHub').withAutomaticReconnect().build();
 
 // Start connection
 //sharedHubConnection.start().then(function () {

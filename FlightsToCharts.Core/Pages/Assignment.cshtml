@@ -1,0 +1,30 @@
+﻿@page
+@model FlightsToCharts.Core.Pages.AssignmentModel
+@{
+   ViewData["Title"] = "Assignment";
+   ViewData["Bundle"] = "assignment.min.js";
+}
+
+<h1 class="m-4">@ViewData["Title"]</h1>
+
+<div class="dx-field w-100 h-auto d-flex">
+   <div class="ml-4 mr-3 pt-2 align-middle" style="width: auto">Assignment</div>
+   <div style="min-width: 90vw">
+      <div id="dropDownOptions"></div>
+   </div>
+</div>
+
+<div id="gridContainer" class="m-4" style="min-height: 75vh;">
+   <div class="d-flex">
+      <div id="chartData" style="height: 100%; width: 95%"></div>
+      <div class="text-center p-4">
+         
+      </div>
+   </div>
+</div>
+
+<div id="loadPanel"></div>
+
+<environment include="Development">
+   <script src="~/js/src/assignment.js"></script>
+</environment>

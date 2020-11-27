@@ -51,6 +51,10 @@
          showColumnLines: true,
          rowAlternationEnabled: true,
          width: '80%',
+         filterRow: {
+            visible: true,
+            applyFilter: "auto"
+         },
          paging: {
             pageSize: 15
          },
@@ -62,52 +66,63 @@
          dataSource: datasource,
          columns: [
             {
-               dataField: 'FAA',
-               caption: 'FAA',
-               width: 75,
-               alignment: 'right'
+               dataField: 'Tailnum',
+               caption: 'Tail number',
+               width: 120,
+               //alignment: 'right'
             },
             {
-               dataField: 'Name',
-               caption: 'Name',
-               width: 350
+               dataField: 'Year',
+               caption: 'Manuf. Year',
+               //width: 350
+            },
+            //{
+            //   caption: 'Location',
+            //   encodeHtml: false,
+            //   alignment: 'center',
+            //   width: 100,
+            //   calculateCellValue: (rowData) => {
+            //      return rowData.Lat + ',' + rowData.Lon;
+            //   },
+            //   cellTemplate: (element, info) => {
+            //      element.append('<a href="https://www.google.com/maps/search/?api=1&zoom=10&query=' + info.text + '"> <i class="fas fa-map-marked-alt"></i></a>').css("color", "blue");
+            //   }
+            //},
+            {
+               dataField: 'Type',
+               caption: 'Type',
+               //width: 150
             },
             {
-               caption: 'Location',
-               encodeHtml: false,
-               alignment: 'center',
-               width: 100,
-               calculateCellValue: (rowData) => {
-                  return rowData.Lat + ',' + rowData.Lon;
-               },
-               cellTemplate: (element, info) => {
-                  element.append('<a href="https://www.google.com/maps/search/?api=1&zoom=10&query=' + info.text + '"> <i class="fas fa-map-marked-alt"></i></a>').css("color", "blue");
-               }
+               dataField: 'Manufacturer',
+               caption: 'Manufacturer',
+               //width: 150
             },
             {
-               dataField: 'Alt',
-               caption: 'Altitude(ft)',
-               width: 150
+               dataField: 'Model',
+               caption: 'Model',
+               //width: 200,
+               //alignment: 'center'
             },
             {
-               dataField: 'Tz',
-               caption: 'Timezone(GMT)',
-               width: 150
+               dataField: 'Engines',
+               caption: 'Engines',
+               //width: 250
             },
             {
-               dataField: 'Dst',
-               caption: 'Daylight savings time zone',
-               width: 200,
-               alignment: 'center'
+               dataField: 'Seats',
+               caption: 'Seats',
+               //width: 250
             },
             {
-               dataField: 'Tzone',
-               caption: 'IANA time zone',
-               width: 250
+               dataField: 'Speed',
+               caption: 'Speed',
+               //width: 250
             },
             {
-               dataField: 'X',
-               caption: ' '
+               dataField: 'Engine',
+               caption: 'Engine',
+               //width: 250
             }
          ],
          showBorders: true

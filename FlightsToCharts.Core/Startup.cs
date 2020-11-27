@@ -64,6 +64,7 @@ namespace FlightsToCharts.Core
             endpoints.MapHub<PlanesHub>("/planesHub");
             endpoints.MapHub<WeatherHub>("/weatherHub");
             endpoints.MapHub<SharedHub>("/sharedHub");
+            endpoints.MapHub<AssignmentHub>("/assignmentHub"); 
          });
       }
    }

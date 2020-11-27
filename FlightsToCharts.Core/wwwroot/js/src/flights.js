@@ -12,7 +12,7 @@
       onShown: () => {
          setTimeout(() => {
             loadPanel.hide();
-         }, 30000);
+         }, 60000);
       },
    }).dxLoadPanel('instance');
 

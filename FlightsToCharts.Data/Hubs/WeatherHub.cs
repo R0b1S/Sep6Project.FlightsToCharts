@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -22,7 +23,19 @@ namespace FlightsToCharts.Data.Hubs
       {
          try
          {
-            var weather = await _context.Weather.ToArrayAsync();   //_containerData.GetAllBlobs();
+            var weather = await _context.Weather.Select(x => new {
+               x.Origin,
+               x.TimeHour,
+               TempCels = Math.Round(((x.Temp ?? 0) - 32) / 1.8, 2), // convert to celsius from farenheit
+               DewCels = Math.Round(((x.Temp ?? 0) - 32) / 1.8, 2), // convert to celsius from farenheit
+               x.Humid, // relative
+               x.WindDir, // degrees
+               WindGust = Math.Round(x.WindGust ?? 0, 4), // mph
+               WindSpeed = Math.Round(x.WindSpeed ?? 0,4), // mph
+               x.Precip, // zrazky inches
+               x.Pressure, // millibars
+               x.Visib, // miles
+            }).ToArrayAsync();   //_containerData.GetAllBlobs();
             //await DbUtils.GetTableDataCount(_context, blobsMetadata);
             await Clients.All.SendAsync("SendAllWeather", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Ok, Data = JsonSerializer.Serialize(weather), Message = null }));
          }

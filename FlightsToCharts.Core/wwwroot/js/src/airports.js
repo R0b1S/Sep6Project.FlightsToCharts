@@ -51,6 +51,10 @@
          showColumnLines: true,
          rowAlternationEnabled: true,
          width: '80%',
+         filterRow: {
+            visible: true,
+            applyFilter: "auto"
+         },
          paging: {
             pageSize: 15
          },

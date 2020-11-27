@@ -40,14 +40,10 @@ namespace FlightsToCharts.Data
             .Property(o => o.DataProcessed)
             .HasDefaultValue(true);
 
-         //modelBuilder
-         //       .Entity<Airline>(eb =>
-         //       {
-         //          eb.HasNoKey();
-         //          eb.ToView("LoanTransactions");
-         //          eb.Property(v => v.Carrier).HasColumnName("TransID");
-         //       });
-         // // Also add dbset with view model
+         // VIEWS
+         modelBuilder.Entity<FlightsView.FlightsPerMonth>()
+            .HasNoKey()
+            .ToView("FlightsPerMonth_View");
       }
 
       public DbSet<Airline> Airlines { get; set; }
@@ -56,6 +52,7 @@ namespace FlightsToCharts.Data
       public DbSet<Plane> Planes { get; set; }
       public DbSet<Weather> Weather { get; set; }
       public DbSet<TableMetadata> TablesMetadata { get; set; }
+      public DbSet<FlightsView.FlightsPerMonth> FlightsPerMonths { get; set; }
 
       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
       {
