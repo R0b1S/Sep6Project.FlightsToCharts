@@ -2,6 +2,7 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using FlightsToCharts.SharedLibrary.Domains;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,10 +10,16 @@ using System.Threading.Tasks;
 
 namespace FlightsToCharts.SharedLibrary.Utils
 {
+   [Obsolete]
    public class ContainerData
    {
       // transfer link to vault
-      private static BlobContainerClient container = new BlobContainerClient(System.Environment.GetEnvironmentVariable("ContainerConnString"), "data-to-process");
+      private static BlobContainerClient container;
+
+      public ContainerData(IConfiguration Configuration)
+      {
+         container = new BlobContainerClient(Configuration.GetSection("ContainerConnString").Value, "data-to-process");
+      }
 
       public List<BlobMetadataExtended> GetAllBlobs()
       {

@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightsToCharts.Data", "Fli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightsToCharts.SharedLibrary", "FlightsToCharts.SharedLibrary\FlightsToCharts.SharedLibrary.csproj", "{73C31DDD-BBF9-48C5-A934-BE73C30A9BDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightsToCharts.BlobTriggerDataToProcess", "FlightsToCharts.BlobTriggerDataToProcess\FlightsToCharts.BlobTriggerDataToProcess.csproj", "{4FB317DC-ABCC-4C8F-8824-8E0B484B7C2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightsToCharts.BlobTriggerDataToProcess", "FlightsToCharts.BlobTriggerDataToProcess\FlightsToCharts.BlobTriggerDataToProcess.csproj", "{4FB317DC-ABCC-4C8F-8824-8E0B484B7C2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

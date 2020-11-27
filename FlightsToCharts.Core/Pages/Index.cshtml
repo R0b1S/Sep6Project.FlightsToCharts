@@ -2,11 +2,36 @@
 @model IndexModel
 @{
    ViewData["Title"] = "Home page";
+   ViewData["Bundle"] = "index.min.js";
 }
 
 <div class="text-center">
-   <h1  id="ftw" class="display-4">Welcome</h1>
-
-   <div id="gridContainer" style="min-height: 45vh"></div>
-   <div id="loadPanel" style=""></div>
+   <h1 class="display-3">Welcome</h1>
+   <h1 class="display-4">to</h1>
+   <h1 class="display-3">Flights To Charts</h1>
 </div>
+<hr />
+<div class="w-50 mt-5 mx-auto text-center">
+   @*<a href="https://www.via.dk">VIA University College</a>*@
+   <p>
+      Fligts to Charts is web application based on assignment from SEP6.
+      The main goal of this project is to demonstrate the use of Cloud Services provided by
+      Amazon (AWS), Google (Google Cloud) or Microsoft (Microsoft Azure).
+      This application runs fully on <a href="https://azure.microsoft.com/">Microsoft Azure Services</a>.
+   </p>
+   <p>
+      The user interface is based on fictitious project for "The United Airplanes Association"
+      and displays various charts based on datasets from American airlines for year 2013.
+      The information about data sets are displayed in data grid below.
+   </p>
+</div>
+
+<div id="gridContainer" class="w-75 mt-5 mx-auto" style="min-height: 25vh">
+   <div id="gridData"></div>
+</div>
+
+<div id="loadPanel"></div>
+
+<environment include="Development">
+   <script src="~/js/src/index.js"></script>
+</environment>

@@ -1,0 +1,59 @@
+[
+   {
+      "outputFileName": "wwwroot/js/dist/index.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/index.js"
+      ]
+   },
+   {
+      "outputFileName": "wwwroot/js/dist/airlines.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/airlines.js"
+      ]
+   },
+   {
+      "outputFileName": "wwwroot/js/dist/airports.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/airports.js"
+      ]
+   },
+   {
+      "outputFileName": "wwwroot/js/dist/flights.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/flights.js"
+      ]
+   },
+   {
+      "outputFileName": "wwwroot/js/dist/planes.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/planes.js"
+      ]
+   },
+   {
+      "outputFileName": "wwwroot/js/dist/weather.min.js",
+      "inputFiles": [
+         "wwwroot/js/app.js",
+         "wwwroot/js/src/weather.js"
+      ]
+   }
+   //,
+   //{
+   //   "outputFileName": "output/all.js",
+   //   "inputFiles": [
+   //      "js/*.js",
+   //      "!js/ignore.js" // start with a ! to exclude files
+   //   ]
+   //},
+   //{
+   //   "outputFileName": "output/app.js",
+   //   "inputFiles": [
+   //      "input/main.js",
+   //      "input/core/*.js" // all .js files in input/core/
+   //   ]
+   //}
+]

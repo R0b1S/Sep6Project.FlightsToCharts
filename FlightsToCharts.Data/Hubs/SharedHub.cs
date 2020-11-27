@@ -4,6 +4,7 @@ using FlightsToCharts.SharedLibrary.Domains;
 using FlightsToCharts.SharedLibrary.Utils;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,12 @@ namespace FlightsToCharts.Data.Hubs
    public class SharedHub : Hub
    {
       private readonly SepDbContext _context;
-      private readonly ContainerData _containerData;
+      //private readonly ContainerData _containerData;
 
-      public SharedHub(SepDbContext context)
+      public SharedHub(SepDbContext context, IConfiguration Configuration)
       {
          _context = context;
-         _containerData = new ContainerData();
+         //_containerData = new ContainerData(Configuration);
       }
 
       public async Task SendMessage(string user, string message)
@@ -34,13 +35,13 @@ namespace FlightsToCharts.Data.Hubs
       {
          try
          {
-            var blobsMetadata = _containerData.GetAllBlobs();
-            await DbUtils.GetTableDataCount(_context, blobsMetadata);
-            await Clients.Caller.SendAsync("SendBlobsMetadata", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Ok, Data = JsonSerializer.Serialize(blobsMetadata), Message = null }));
+            var blobsMetadata = await _context.TablesMetadata.ToArrayAsync();   //_containerData.GetAllBlobs();
+            //await DbUtils.GetTableDataCount(_context, blobsMetadata);
+            await Clients.All.SendAsync("SendAllBlobsMetadata", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Ok, Data = JsonSerializer.Serialize(blobsMetadata), Message = null }));
          }
          catch (Exception e)
          {
-            await Clients.Caller.SendAsync("SendBlobsMetadata", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Error, Data = null, Message = $"Error: {e.Message}" }));
+            await Clients.All.SendAsync("SendAllBlobsMetadata", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Error, Data = null, Message = $"Error: {e.Message}" }));
          }
       }
    }

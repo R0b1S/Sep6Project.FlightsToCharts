@@ -1,0 +1,20 @@
+﻿@page
+@model FlightsToCharts.Core.Pages.AirlinesModel
+@{
+   ViewData["Title"] = "Airlines";
+   ViewData["Bundle"] = "airlines.min.js";
+}
+
+<h1 class="m-4">@ViewData["Title"]</h1>
+
+<div id="gridContainer" class="m-4" style="min-height: 65vh;">
+   <div id="gridData"></div>
+</div>
+
+<div id="loadPanel"></div>
+
+
+
+<environment include="Development">
+   <script src="~/js/src/airlines.js"></script>
+</environment>

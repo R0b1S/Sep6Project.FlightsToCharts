@@ -29,7 +29,7 @@ namespace FlightsToCharts.Core
          services.AddRazorPages();
          services.AddSignalR();
          services.AddEntityFrameworkSqlServer().AddDbContext<SepDbContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("SepAirlineDbConnectionString"))
+             options.UseSqlServer(Configuration.GetConnectionString("SepAirlineDbConnectionString") ?? Configuration.GetConnectionString("Sep6DbConnString"))
          );
       }
 
@@ -54,10 +54,15 @@ namespace FlightsToCharts.Core
 
          app.UseAuthorization();
 
+
          app.UseEndpoints(endpoints =>
          {
             endpoints.MapRazorPages();
             endpoints.MapHub<AirlinesHub>("/airlinesHub");
+            endpoints.MapHub<AirportsHub>("/airportsHub");
+            endpoints.MapHub<FlightsHub>("/flightsHub");
+            endpoints.MapHub<PlanesHub>("/planesHub");
+            endpoints.MapHub<WeatherHub>("/weatherHub");
             endpoints.MapHub<SharedHub>("/sharedHub");
          });
       }
