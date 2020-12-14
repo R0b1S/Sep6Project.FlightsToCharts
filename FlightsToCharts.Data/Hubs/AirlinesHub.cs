@@ -23,7 +23,7 @@ namespace FlightsToCharts.Data.Hubs
       {
          try
          {
-            var airlines = await _context.Airlines.ToArrayAsync();   //_containerData.GetAllBlobs();
+            var airlines = await _context.Airlines.ToListAsync();   //_containerData.GetAllBlobs();
             //await DbUtils.GetTableDataCount(_context, blobsMetadata);
             await Clients.All.SendAsync("SendAllAirlines", JsonSerializer.Serialize(new ResponseMessage { StatusCode = ResponseMessage.StatusCodeEnum.Ok, Data = JsonSerializer.Serialize(airlines), Message = null }));
          }

@@ -30,7 +30,8 @@ namespace FlightsToCharts.Core
          services.AddSignalR();
          services.AddEntityFrameworkSqlServer().AddDbContext<SepDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("SepAirlineDbConnectionString") ?? Configuration.GetConnectionString("Sep6DbConnString"))
-         );
+           
+         ); ;
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

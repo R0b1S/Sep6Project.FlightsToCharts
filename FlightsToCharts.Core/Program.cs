@@ -20,13 +20,13 @@ namespace FlightsToCharts.Core
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 // In case of migration, this needs to be commented until next comment
-                .ConfigureAppConfiguration((context, config) =>
-                {
-                   var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("SepAirlineKeyVaultURI"));
-                   config.AddAzureKeyVault(
-                   keyVaultEndpoint,
-                   new DefaultAzureCredential());
-                })
+                //.ConfigureAppConfiguration((context, config) =>
+                //{
+                //   var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("SepAirlineKeyVaultURI"));
+                //   config.AddAzureKeyVault(
+                //   keyVaultEndpoint,
+                //   new DefaultAzureCredential());
+                //})
                 // Until here !!
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

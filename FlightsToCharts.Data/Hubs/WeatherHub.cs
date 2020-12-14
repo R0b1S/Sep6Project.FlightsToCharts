@@ -32,7 +32,7 @@ namespace FlightsToCharts.Data.Hubs
                x.WindDir, // degrees
                WindGust = Math.Round(x.WindGust ?? 0, 4), // mph
                WindSpeed = Math.Round(x.WindSpeed ?? 0,4), // mph
-               x.Precip, // zrazky inches
+               x.Precip, // inches
                x.Pressure, // millibars
                x.Visib, // miles
             }).ToArrayAsync();   //_containerData.GetAllBlobs();

@@ -44,6 +44,52 @@ namespace FlightsToCharts.Data
          modelBuilder.Entity<FlightsView.FlightsPerMonth>()
             .HasNoKey()
             .ToView("FlightsPerMonth_View");
+
+         modelBuilder.Entity<FlightsView.FlightsPerMonthOrigin>()
+            .HasNoKey()
+            .ToView("FlightsPerMonthFromOrigin_View");
+
+         modelBuilder.Entity<FlightsView.MeanAirtimeOrigin>()
+            .HasNoKey()
+            .ToView("MeanAirTimePerOrigin_View");
+
+         modelBuilder.Entity<FlightsView.TopDestination>()
+            .HasNoKey()
+            .ToView("FlightsToDestination_View");
+
+         modelBuilder.Entity<FlightsView.TopDestinationOrigin>()
+            .HasNoKey()
+            .ToView("FlightsToDestinationPerOrigin_View");
+
+         modelBuilder.Entity<WeatherView.NumberOfWeatherObservation>()
+            .HasNoKey()
+            .ToView("NumberOfWeatherObservationPerOrigin_View");
+
+         modelBuilder.Entity<WeatherView.MeanWeatherByOrigin>()
+            .HasNoKey()
+            .ToView("MeanTempByOrigins_View");
+
+         modelBuilder.Entity<WeatherView.DailyMeanWeatherValues>()
+            .HasNoKey()
+            .ToView("DailyMeanTempForOrigins_View");
+
+         modelBuilder.Entity<PlaneView.FlightsPerManufacturer>()
+            .HasNoKey()
+            .ToView("ManufacturerFlightsNumber_View");
+
+         modelBuilder.Entity<PlaneView.PlanesPerManufacturer>()
+            .HasNoKey()
+            .ToView("ManufacturerPlanesNumber_View");
+
+         modelBuilder.Entity<PlaneView.PlanesPerAirbusModel>()
+            .HasNoKey()
+            .ToView("PlanesNumberPerAirbusModel_View");
+
+         modelBuilder.Entity<FlightsView.MeanArrDepDelay>()
+            .HasNoKey()
+            .ToView("MeanDepAndArrDelayPerOrigin_View");
+
+
       }
 
       public DbSet<Airline> Airlines { get; set; }
@@ -53,6 +99,17 @@ namespace FlightsToCharts.Data
       public DbSet<Weather> Weather { get; set; }
       public DbSet<TableMetadata> TablesMetadata { get; set; }
       public DbSet<FlightsView.FlightsPerMonth> FlightsPerMonths { get; set; }
+      public DbSet<FlightsView.FlightsPerMonthOrigin> FlightsPerMonthsOrigins { get; set; }
+      public DbSet<FlightsView.MeanAirtimeOrigin> MeanAirtimeOrigins { get; set; }
+      public DbSet<FlightsView.TopDestination> TopDestinations { get; set; }
+      public DbSet<FlightsView.TopDestinationOrigin> TopDestinationOrigins { get; set; }
+      public DbSet<WeatherView.NumberOfWeatherObservation> NumberOfWeatherObservations { get; set; }
+      public DbSet<WeatherView.DailyMeanWeatherValues> DailyMeanWeatherValues { get; set; }
+      public DbSet<WeatherView.MeanWeatherByOrigin> MeanWeatherByOrigin { get; set; }
+      public DbSet<PlaneView.FlightsPerManufacturer> FlightsPerManufacturers { get; set; }
+      public DbSet<PlaneView.PlanesPerAirbusModel> PlanesPerAirbusModels { get; set; }
+      public DbSet<PlaneView.PlanesPerManufacturer> PlanesPerManufacturers { get; set; }
+      public DbSet<FlightsView.MeanArrDepDelay> MeanArrDepDelays { get; set; }
 
       protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
       {

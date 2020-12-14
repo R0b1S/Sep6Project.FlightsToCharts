@@ -44,7 +44,7 @@
       //console.log(JSON.parse(message.Data));
       //--------------------------------------------
       var datasource = JSON.parse(message.Data);
-      //console.log(datasource);
+      console.log(datasource);
       $('#gridData').dxDataGrid({
          showColumnLines: false,
          showRowLines: true,
