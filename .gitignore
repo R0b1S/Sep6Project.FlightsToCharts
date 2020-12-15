@@ -342,3 +342,6 @@ healthchecksdb
 **/appsettings.json
 
 **/wwwroot/js/dist
+
+FlightsToCharts.BlobTriggerDataToProcess/
+/AZURE REPO .git

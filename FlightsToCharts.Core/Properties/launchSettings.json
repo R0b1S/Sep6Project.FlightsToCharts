@@ -14,7 +14,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "SepAirlineKeyVaultURI": "https://sep-airline-key-vault.vault.azure.net/",
-        "AZURE_USERNAME": "269381@VIAUC.DK"
+        "AZURE_USERNAME": "269381@VIAUC.DK",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
       }
     },
     "FlightsToCharts.Core": {
@@ -24,7 +25,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "SepAirlineKeyVaultURI": "https://sep-airline-key-vault.vault.azure.net/",
-        "AZURE_USERNAME": "269381@VIAUC.DK"
+        "AZURE_USERNAME": "269381@VIAUC.DK",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.Azure.SignalR"
       }
     }
   }
