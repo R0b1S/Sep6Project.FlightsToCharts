@@ -3,12 +3,14 @@
 
 // HubConnections
 var sharedHubConnection = new signalR.HubConnectionBuilder().withUrl('/sharedHub').withAutomaticReconnect().build();
-var airlinesHubConnection = new signalR.HubConnectionBuilder().withUrl('/airlinesHub').withAutomaticReconnect().build();
-var airportsHubConnection = new signalR.HubConnectionBuilder().withUrl('/airportsHub').withAutomaticReconnect().build();
-var flightsHubConnection = new signalR.HubConnectionBuilder().withUrl('/flightsHub').withAutomaticReconnect().build();
-var planesHubConnection = new signalR.HubConnectionBuilder().withUrl('/planesHub').withAutomaticReconnect().build();
-var weatherHubConnection = new signalR.HubConnectionBuilder().withUrl('/weatherHub').withAutomaticReconnect().build();
-var assignmentHubConnection = new signalR.HubConnectionBuilder().withUrl('/assignmentHub').withAutomaticReconnect().build();
+
+// HUBS were put into 1 hub bcs of FREE LIMITATION on AZURE
+//var airlinesHubConnection = new signalR.HubConnectionBuilder().withUrl('/airlinesHub').withAutomaticReconnect().build();
+//var airportsHubConnection = new signalR.HubConnectionBuilder().withUrl('/airportsHub').withAutomaticReconnect().build();
+//var flightsHubConnection = new signalR.HubConnectionBuilder().withUrl('/flightsHub').withAutomaticReconnect().build();
+//var planesHubConnection = new signalR.HubConnectionBuilder().withUrl('/planesHub').withAutomaticReconnect().build();
+//var weatherHubConnection = new signalR.HubConnectionBuilder().withUrl('/weatherHub').withAutomaticReconnect().build();
+//var assignmentHubConnection = new signalR.HubConnectionBuilder().withUrl('/assignmentHub').withAutomaticReconnect().build();
 
 // Start connection
 //sharedHubConnection.start().then(function () {

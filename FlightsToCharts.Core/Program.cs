@@ -22,7 +22,7 @@ namespace FlightsToCharts.Core
                 // In case of migration, this needs to be commented until next comment
                 .ConfigureAppConfiguration((context, config) =>
                 {
-                   var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("SepAirlineKeyVaultURI"));
+                   var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
                    config.AddAzureKeyVault(
                    keyVaultEndpoint,
                    new DefaultAzureCredential());

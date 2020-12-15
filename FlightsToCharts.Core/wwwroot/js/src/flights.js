@@ -20,9 +20,9 @@
    loadPanel.show();
 
    // hub start connection
-   flightsHubConnection.start().then(() => {
+   sharedHubConnection.start().then(() => {
       // invoke data right after connection was established
-      flightsHubConnection.invoke('GetAllFlights').catch((err) => {
+      sharedHubConnection.invoke('GetAllFlights').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -30,7 +30,7 @@
    });
 
    // hub events
-   flightsHubConnection.on('SendAllFlights', (data) => {
+   sharedHubConnection.on('SendAllFlights', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({

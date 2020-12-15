@@ -20,9 +20,9 @@
    loadPanel.show();
 
    // hub start connection
-   airlinesHubConnection.start().then(() => {
+   sharedHubConnection.start().then(() => {
       // invoke data right after connection was established
-      airlinesHubConnection.invoke('GetAllAirlines').catch((err) => {
+      sharedHubConnection.invoke('GetAllAirlines').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -30,7 +30,7 @@
    });
 
    // hub events
-   airlinesHubConnection.on('SendAllAirlines', (data) => {
+   sharedHubConnection.on('SendAllAirlines', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({

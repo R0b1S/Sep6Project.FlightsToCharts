@@ -20,9 +20,9 @@
    loadPanel.show();
 
    // hub start connection
-   planesHubConnection.start().then(() => {
+   sharedHubConnection.start().then(() => {
       // invoke data right after connection was established
-      planesHubConnection.invoke('GetAllPlanes').catch((err) => {
+      sharedHubConnection.invoke('GetAllPlanes').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -30,7 +30,7 @@
    });
 
    // hub events
-   planesHubConnection.on('SendAllPlanes', (data) => {
+   sharedHubConnection.on('SendAllPlanes', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({

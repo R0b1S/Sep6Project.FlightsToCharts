@@ -27,7 +27,7 @@ namespace FlightsToCharts.Core
       public void ConfigureServices(IServiceCollection services)
       {
          services.AddRazorPages();
-         services.AddSignalR();
+         services.AddSignalR().AddAzureSignalR();
          services.AddEntityFrameworkSqlServer().AddDbContext<SepDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("SepAirlineDbConnectionString") ?? Configuration.GetConnectionString("Sep6DbConnString"))
            
@@ -59,13 +59,13 @@ namespace FlightsToCharts.Core
          app.UseEndpoints(endpoints =>
          {
             endpoints.MapRazorPages();
-            endpoints.MapHub<AirlinesHub>("/airlinesHub");
-            endpoints.MapHub<AirportsHub>("/airportsHub");
-            endpoints.MapHub<FlightsHub>("/flightsHub");
-            endpoints.MapHub<PlanesHub>("/planesHub");
-            endpoints.MapHub<WeatherHub>("/weatherHub");
+            //endpoints.MapHub<AirlinesHub>("/airlinesHub");
+            //endpoints.MapHub<AirportsHub>("/airportsHub");
+            //endpoints.MapHub<FlightsHub>("/flightsHub");
+            //endpoints.MapHub<PlanesHub>("/planesHub");
+            //endpoints.MapHub<WeatherHub>("/weatherHub");
             endpoints.MapHub<SharedHub>("/sharedHub");
-            endpoints.MapHub<AssignmentHub>("/assignmentHub"); 
+            //endpoints.MapHub<AssignmentHub>("/assignmentHub"); 
          });
       }
    }

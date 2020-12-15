@@ -19,8 +19,8 @@
    }).dxLoadPanel('instance');
 
    // hub start connection
-   assignmentHubConnection.start().then(() => {
-      assignmentHubConnection.invoke('GetDropDownOptions').catch((err) => {
+   sharedHubConnection.start().then(() => {
+      sharedHubConnection.invoke('GetDropDownOptions').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -31,100 +31,100 @@
       switch (id) {
          case 1:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetNoFlightsPerMonth').catch((err) => {
+            sharedHubConnection.invoke('GetNoFlightsPerMonth').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 2:
             barType = "bar";
             loadPanel.show();
-            assignmentHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
+            sharedHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 3:
             barType = "stackedBar";
             loadPanel.show();
-            assignmentHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
+            sharedHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 4:
             barType = "fullStackedBar";
             loadPanel.show();
-            assignmentHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
+            sharedHubConnection.invoke('GetNoFlightsPerMonthOrigin').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 5:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetTopTenDest').catch((err) => {
+            sharedHubConnection.invoke('GetTopTenDest').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 6:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetTopTenDestOrigin').catch((err) => {
+            sharedHubConnection.invoke('GetTopTenDestOrigin').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 7:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetMeanAirtime').catch((err) => {
+            sharedHubConnection.invoke('GetMeanAirtime').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 8:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetNumberOfWeatherObservations').catch((err) => {
+            sharedHubConnection.invoke('GetNumberOfWeatherObservations').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 9:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetMeanWeatherByOrigin').catch((err) => {
+            sharedHubConnection.invoke('GetMeanWeatherByOrigin').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 10:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetAllMeasuredTempAtJFK').catch((err) => {
+            sharedHubConnection.invoke('GetAllMeasuredTempAtJFK').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 11:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetDailyMeanTempAtJFK').catch((err) => {
+            sharedHubConnection.invoke('GetDailyMeanTempAtJFK').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 12:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetDailyMeanTempAtOrigins').catch((err) => {
+            sharedHubConnection.invoke('GetDailyMeanTempAtOrigins').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 13:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetMeanArrDepDelay').catch((err) => {
+            sharedHubConnection.invoke('GetMeanArrDepDelay').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 14:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetPlanesPerManuf').catch((err) => {
+            sharedHubConnection.invoke('GetPlanesPerManuf').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 15:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetFlightsPerManuf').catch((err) => {
+            sharedHubConnection.invoke('GetFlightsPerManuf').catch((err) => {
                return console.error(err.toString());
             });
             break;
          case 16:
             loadPanel.show();
-            assignmentHubConnection.invoke('GetAirbusModels').catch((err) => {
+            sharedHubConnection.invoke('GetAirbusModels').catch((err) => {
                return console.error(err.toString());
             });
             break;
@@ -135,7 +135,7 @@
    }
 
    // hub events
-   assignmentHubConnection.on('SendDropDownOptions', (data) => {
+   sharedHubConnection.on('SendDropDownOptions', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -189,7 +189,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendNoFlightsPerMonth', (data) => {
+   sharedHubConnection.on('SendNoFlightsPerMonth', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -230,7 +230,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendNoFlightsPerMonthOrigin', (data) => {
+   sharedHubConnection.on('SendNoFlightsPerMonthOrigin', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -287,7 +287,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendTopTenDest', (data) => {
+   sharedHubConnection.on('SendTopTenDest', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -328,7 +328,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendTopTenDestOrigin', (data) => {
+   sharedHubConnection.on('SendTopTenDestOrigin', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -385,7 +385,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendMeanAirtime', (data) => {
+   sharedHubConnection.on('SendMeanAirtime', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -426,7 +426,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendNumberOfWeatherObservations', (data) => {
+   sharedHubConnection.on('SendNumberOfWeatherObservations', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -467,7 +467,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendMeanWeatherByOrigin', (data) => {
+   sharedHubConnection.on('SendMeanWeatherByOrigin', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -513,7 +513,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendAllMeasuredTempAtJFK', (data) => {
+   sharedHubConnection.on('SendAllMeasuredTempAtJFK', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -569,7 +569,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendDailyMeanTempAtJFK', (data) => {
+   sharedHubConnection.on('SendDailyMeanTempAtJFK', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -626,7 +626,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendDailyMeanTempAtOrigins', (data) => {
+   sharedHubConnection.on('SendDailyMeanTempAtOrigins', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -691,7 +691,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendMeanArrDepDelay', (data) => {
+   sharedHubConnection.on('SendMeanArrDepDelay', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -737,7 +737,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendPlanesPerManuf', (data) => {
+   sharedHubConnection.on('SendPlanesPerManuf', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -778,7 +778,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendFlightsPerManuf', (data) => {
+   sharedHubConnection.on('SendFlightsPerManuf', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
@@ -819,7 +819,7 @@
       loadPanel.hide();
    });
 
-   assignmentHubConnection.on('SendAirbusModels', (data) => {
+   sharedHubConnection.on('SendAirbusModels', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({

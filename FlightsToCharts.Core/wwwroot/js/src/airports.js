@@ -20,9 +20,9 @@
    loadPanel.show();
 
    // hub start connection
-   airportsHubConnection.start().then(() => {
+   sharedHubConnection.start().then(() => {
       // invoke data right after connection was established
-      airportsHubConnection.invoke('GetAllAirports').catch((err) => {
+      sharedHubConnection.invoke('GetAllAirports').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -30,7 +30,7 @@
    });
 
    // hub events
-   airportsHubConnection.on('SendAllAirports', (data) => {
+   sharedHubConnection.on('SendAllAirports', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({

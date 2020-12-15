@@ -20,9 +20,9 @@
    loadPanel.show();
 
    // hub start connection
-   weatherHubConnection.start().then(() => {
+   sharedHubConnection.start().then(() => {
       // invoke data right after connection was established
-      weatherHubConnection.invoke('GetAllWeather').catch((err) => {
+      sharedHubConnection.invoke('GetAllWeather').catch((err) => {
          return console.error(err.toString());
       });
    }).catch((err) => {
@@ -30,7 +30,7 @@
    });
 
    // hub events
-   weatherHubConnection.on('SendAllWeather', (data) => {
+   sharedHubConnection.on('SendAllWeather', (data) => {
       var message = JSON.parse(data);
       if (message.StatusCode !== 0) {
          swal({
